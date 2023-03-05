@@ -41,9 +41,9 @@ E.g.:
 ```php
 $startEnhance = $dolbyApi->api('media')->enhance('https://dolbyio.s3-us-west-1.amazonaws.com/public/shelby/tunnel.original.mp4', 'dlb://example_out');
 
-$startEnhance->body()); // "{"job_id":"5970da3d-cdbc-4128-b2f8-21ab61573d2e"}"
-$startEnhance->json()); // decoded body: [ "job_id" => "44fccc05-54cc-4bda-84ba-a8c9ee4b8335"]
-$startEnhance->status()); // 200
+$startEnhance->body(); // "{"job_id":"5970da3d-cdbc-4128-b2f8-21ab61573d2e"}"
+$startEnhance->json(); // decoded body: [ "job_id" => "44fccc05-54cc-4bda-84ba-a8c9ee4b8335"]
+$startEnhance->status(); // 200
 ```
 
 [Get Enhance Results](https://docs.dolby.io/media-apis/reference/media-enhance-get)
@@ -55,7 +55,7 @@ $dolbyApi->api('media')->enhanceStatus('job-id');
 E.g.:
 ```php
 $enhanceStatus = $dolbyApi->api('media')->enhanceStatus('44fccc05-54cc-4bda-84ba-a8c9ee4b8335');
-$enhanceStatus->body()); // {"path":"/media/enhance","status":"Success","progress":100,"api_version":"v1.1.2","result":{}}"
+$enhanceStatus->body(); // {"path":"/media/enhance","status":"Success","progress":100,"api_version":"v1.1.2","result":{}}"
 ```
 
 #### Input and Output API
@@ -71,7 +71,7 @@ $uploadUrl = $dolbyApi->api('media')->getUploadUrl('your-dlb-url');
 E.g.:
 ```php
 $uploadUrl = $dolbyApi->api('media')->getUploadUrl('dlb://input/file.wav');
-$uploadUrl->body()); // {"url":"https://media-api-proxfyprug.s3-accelerate.amazonaws.com/1129d723-42e6-40c6-a35d-07986d1be4af/input/file.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIA2N2ZL3VQGKHMR3VL%2F20230228%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230228T184217Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3a79hu6%2B52SmSMc...CN20ld5RAqWNhRdKNOCNX%2BH%2BV8%3D&X-Amz-Signature=d866b39b6...54008d18970&X-Amz-SignedHeaders=host&x-id=PutObject"} 
+$uploadUrl->body(); // {"url":"https://media-api-proxfyprug.s3-accelerate.amazonaws.com/1129d723-42e6-40c6-a35d-07986d1be4af/input/file.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIA2N2ZL3VQGKHMR3VL%2F20230228%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230228T184217Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3a79hu6%2B52SmSMc...CN20ld5RdKNOCNX%2BH%2BV8%3D&X-Amz-Signature=d866b39b6...54008d18970&X-Amz-SignedHeaders=host&x-id=PutObject"} 
 ```
 
 **Output**
@@ -122,7 +122,7 @@ $diagnoseStatusResponse = $dolbyApi->api('media')->diagnoseStatus('job-id');
 E.g.:
 ```php
 $diagnoseStatusResponse = $dolbyApi->api('media')->diagnoseStatus('174230d0-e785-4472-b4a3-c57fa31f665b');
-$diagnoseStatusResponse->body());  // "{"path":"/media/diagnose","status":"Success","progress":100,"api_version":"b1.0","result":{"media_info":{"container":{"kind":"mp4","duration":10.45,"bitrate":822169,"size":1073958},"audio":{"codec":"aac","channels":2,"sample_rate":44100,"duration":10.45,"bitrate":96000},"video":{"codec":"h264","frame_rate":30,"height":360,"width":640,"duration":10.45,"bitrate":711452}},"audio":{"quality_score":{"average":3.7,"distribution":[{"lower_bound":0,"upper_bound":1,"duration":0,"percentage":0},{"lower_bound":1,"upper_bound":2,"duration":0,"percentage":0},{"lower_bound":2,"upper_bound":3,"duration":2.5,"percentage":26.3},{"lower_bound":3,"upper_bound":4,"duration":3,"percentage":31.6},{"lower_bound":4,"upper_bound":5,"duration":4,"percentage":42.1},{"lower_bound":5,"upper_bound":6,"duration":0,"percentage":0},{"lower_bound":6,"upper_bound":7,"duration":0,"percentage":0},{"lower_bound":7,"upper_bound":8,"duration":0,"percentage":0},{"lower_bound":8,"upper_bound":9,"duration":0,"percentage":0},{"lower_bound":9,"upper_bound":10,"duration":0,"percentage":0}],"worst_segment":{"start":3.5,"end":8.5,"score":3.3}},"noise_score":{"average":0.9,"distribution":[{"lower_bound":0,"upper_bound":1,"duration":7,"percentage":73.7},{"lower_bound":1,"upper_bound":2,"duration":0.5,"percentage":5.3},{"lower_bound":2,"upper_bound":3,"duration":0.5,"percentage":5.3},{"lower_bound":3,"upper_bound":4,"duration":1,"percentage":10.5},{"lower_bound":4,"upper_bound":5,"duration":0.5,"percentage":5.3},{"lower_bound":5,"upper_bound":6,"duration":0,"percentage":0},{"lower_bound":6,"upper_bound":7,"duration":0,"percentage":0},{"lower_bound":7,"upper_bound":8,"duration":0,"percentage":0},{"lower_bound":8,"upper_bound":9,"duration":0,"percentage":0},{"lower_bound":9,"upper_bound":10,"duration":0,"percentage":0}]},"clipping":{"events":0},"loudness":{"measured":-14.91,"range":2.26,"gating_mode":"speech","sample_peak":-0.82,"true_peak":-0.81},"music":{"percentage":0},"silence":{"percentage":0,"at_beginning":0,"at_end":0,"num_sections":0,"silent_channels":[]},"speech":{"percentage":100,"events":{"plosive":6,"sibilance":0}}}}}"
+$diagnoseStatusResponse->body();  // "{"path":"/media/diagnose","status":"Success","progress":100,"api_version":"b1.0","result":{"media_info":{"container":{"kind":"mp4","duration":10.45,"bitrate":822169,"size":1073958},"audio":{"codec":"aac","channels":2,"sample_rate":44100,"duration":10.45,"bitrate":96000},"video":{"codec":"h264","frame_rate":30,"height":360,"width":640,"duration":10.45,"bitrate":711452}},"audio":{"quality_score":{"average":3.7,"distribution":[{"lower_bound":0,"upper_bound":1,"duration":0,"percentage":0},{"lower_bound":1,"upper_bound":2,"duration":0,"percentage":0},{"lower_bound":2,"upper_bound":3,"duration":2.5,"percentage":26.3},{"lower_bound":3,"upper_bound":4,"duration":3,"percentage":31.6},{"lower_bound":4,"upper_bound":5,"duration":4,"percentage":42.1},{"lower_bound":5,"upper_bound":6,"duration":0,"percentage":0},{"lower_bound":6,"upper_bound":7,"duration":0,"percentage":0},{"lower_bound":7,"upper_bound":8,"duration":0,"percentage":0},{"lower_bound":8,"upper_bound":9,"duration":0,"percentage":0},{"lower_bound":9,"upper_bound":10,"duration":0,"percentage":0}],"worst_segment":{"start":3.5,"end":8.5,"score":3.3}},"noise_score":{"average":0.9,"distribution":[{"lower_bound":0,"upper_bound":1,"duration":7,"percentage":73.7},{"lower_bound":1,"upper_bound":2,"duration":0.5,"percentage":5.3},{"lower_bound":2,"upper_bound":3,"duration":0.5,"percentage":5.3},{"lower_bound":3,"upper_bound":4,"duration":1,"percentage":10.5},{"lower_bound":4,"upper_bound":5,"duration":0.5,"percentage":5.3},{"lower_bound":5,"upper_bound":6,"duration":0,"percentage":0},{"lower_bound":6,"upper_bound":7,"duration":0,"percentage":0},{"lower_bound":7,"upper_bound":8,"duration":0,"percentage":0},{"lower_bound":8,"upper_bound":9,"duration":0,"percentage":0},{"lower_bound":9,"upper_bound":10,"duration":0,"percentage":0}]},"clipping":{"events":0},"loudness":{"measured":-14.91,"range":2.26,"gating_mode":"speech","sample_peak":-0.82,"true_peak":-0.81},"music":{"percentage":0},"silence":{"percentage":0,"at_beginning":0,"at_end":0,"num_sections":0,"silent_channels":[]},"speech":{"percentage":100,"events":{"plosive":6,"sibilance":0}}}}}"
 ```
 
 #### [Analyse API](https://docs.dolby.io/media-apis/docs/analyze-api-guide)
@@ -179,7 +179,7 @@ $analyzeSpeechStatusResponse = $dolbyApi->api('media')->analyzeSpeechStatus('job
 E.g.:
 ```php
 $analyzeSpeechStatusResponse = $dolbyApi->api('media')->analyzeSpeechStatus('1ba639sd-d876-46ga-845w-33ec4c5cer00');
-$analyzeSpeechStatusResponse->body()); // "{"path":"/media/analyze/speech","status":"Success","progress":100,"api_version":"b1.0","result":{}}"
+$analyzeSpeechStatusResponse->body(); // "{"path":"/media/analyze/speech","status":"Success","progress":100,"api_version":"b1.0","result":{}}"
 ```
 
 #### [Analyse Music API](https://docs.dolby.io/media-apis/docs/analyze-music-api-guide)
@@ -205,7 +205,7 @@ $analyzeMusicStatusResponse = $dolbyApi->api('media')->analyzeMusicStatus('job-i
 E.g.:
 ```php
 $analyzeMusicStatusResponse = $dolbyApi->api('media')->analyzeMusicStatus('0c1faw6e-39e5-4a36-a056-af3615e5189f');
-$analyzeMusicStatusResponse->body()); // "{"path":"/media/analyze/music","status":"Success","progress":100,"api_version":"b1.0","result":{}}"
+$analyzeMusicStatusResponse->body(); // "{"path":"/media/analyze/music","status":"Success","progress":100,"api_version":"b1.0","result":{}}"
 ```
 
 #### [Transcode API](https://docs.dolby.io/media-apis/docs/transcode-api-guide)
