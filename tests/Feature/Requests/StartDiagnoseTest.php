@@ -22,7 +22,7 @@ test('can post to diagnose media', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof StartDiagnose
-            && $response->body() == "{\"job_id\":\"sn708637-9t78-4023-32la-1285r04652ac\"}";
+            && $response->body() == '{"job_id":"sn708637-9t78-4023-32la-1285r04652ac"}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);

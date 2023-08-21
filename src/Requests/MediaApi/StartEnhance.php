@@ -15,15 +15,14 @@ class StartEnhance extends Request implements HasBody
 
     /**
      * HTTP Method
-     *
-     * @var Method
      */
     protected Method $method = Method::POST;
 
     public function __construct(
         protected string $input,
         protected string $output,
-    ){}
+    ) {
+    }
 
     protected function defaultBody(): array
     {
@@ -39,8 +38,6 @@ class StartEnhance extends Request implements HasBody
      * Start enhancing to improve your media.
      *
      * @see https://docs.dolby.io/media-apis/reference/media-enhance-post
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

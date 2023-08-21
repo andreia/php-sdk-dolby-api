@@ -15,7 +15,7 @@ test('can post to analyze speech', function () {
 
     $input = 'https://dolbyio.s3-us-west-1.amazonaws.com/public/shelby/tunnel.original.mp4';
     $output = 'dlb://analyze_speech_out';
-    $onComplete = ["url" => "https://docs.dolby.io/"];
+    $onComplete = ['url' => 'https://docs.dolby.io/'];
 
     $response = $dolbyApi->send(new StartAnalyzeSpeech($input, $output, $onComplete));
 
@@ -23,7 +23,7 @@ test('can post to analyze speech', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof StartAnalyzeSpeech
-            && $response->body() == "{\"job_id\":\"sn708637-9t78-4023-32la-1285r04652ac\"}";
+            && $response->body() == '{"job_id":"sn708637-9t78-4023-32la-1285r04652ac"}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);

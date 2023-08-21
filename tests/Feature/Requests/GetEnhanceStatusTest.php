@@ -21,9 +21,8 @@ test('can retrieve enhance status from the api', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof GetEnhanceStatus
-            && $response->body() == "{\"path\":\"/media/enhance\",\"status\":\"Success\",\"progress\":100,\"api_version\":\"v1.1.2\",\"result\":{}}\"";
+            && $response->body() == '{"path":"/media/enhance","status":"Success","progress":100,"api_version":"v1.1.2","result":{}}"';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);
 });
-

@@ -15,14 +15,13 @@ class GetUploadUrl extends Request implements HasBody
 
     /**
      * HTTP Method
-     *
-     * @var Method
      */
     protected Method $method = Method::POST;
 
     public function __construct(
         protected string $url,
-    ){}
+    ) {
+    }
 
     protected function defaultBody(): array
     {
@@ -37,8 +36,6 @@ class GetUploadUrl extends Request implements HasBody
      * Return a pre-signed url you can use to PUT and upload your media file.
      *
      * @see https://docs.dolby.io/media-apis/reference/media-input-post
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

@@ -15,15 +15,14 @@ class StartDiagnose extends Request implements HasBody
 
     /**
      * HTTP Method
-     *
-     * @var Method
      */
     protected Method $method = Method::POST;
 
     public function __construct(
         protected string $input,
         protected array $content,
-    ){}
+    ) {
+    }
 
     protected function defaultBody(): array
     {
@@ -39,8 +38,6 @@ class StartDiagnose extends Request implements HasBody
      * Quick diagnosis for discovering audio quality issues with your media.
      *
      * @see https://docs.dolby.io/media-apis/reference/media-diagnose-post
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

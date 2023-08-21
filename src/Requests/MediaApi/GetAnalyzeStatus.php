@@ -11,14 +11,13 @@ class GetAnalyzeStatus extends Request
 {
     /**
      * HTTP Method
-     *
-     * @var Method
      */
     protected Method $method = Method::GET;
 
     public function __construct(
         protected string $jobId,
-    ){}
+    ) {
+    }
 
     protected function defaultQuery(): array
     {
@@ -33,8 +32,6 @@ class GetAnalyzeStatus extends Request
      * For a given job_id, this method will check if the processing task has completed.
      *
      * @see https://docs.dolby.io/media-apis/reference/media-analyze-get
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

@@ -22,7 +22,7 @@ test('can post to enhance media', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof StartEnhance
-            && $response->body() == "{\"job_id\":\"5879da3d-ad3c-4798-h2f8-21eb61573d2e\"}";
+            && $response->body() == '{"job_id":"5879da3d-ad3c-4798-h2f8-21eb61573d2e"}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);

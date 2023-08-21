@@ -15,7 +15,7 @@ test('can post to analyze media', function () {
 
     $input = 'https://dolbyio.s3-us-west-1.amazonaws.com/public/shelby/tunnel.original.mp4';
     $output = 'dlb://analyze_out';
-    $loudness = ["profile" => "service_amazon"];
+    $loudness = ['profile' => 'service_amazon'];
     $content = ['type' => ''];
 
     $response = $dolbyApi->send(new StartAnalyze($input, $output, $loudness, $content));
@@ -24,7 +24,7 @@ test('can post to analyze media', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof StartAnalyze
-            && $response->body() == "{\"job_id\":\"fn708637-9f78-4023-32la-1285r04627ac\"}";
+            && $response->body() == '{"job_id":"fn708637-9f78-4023-32la-1285r04627ac"}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);

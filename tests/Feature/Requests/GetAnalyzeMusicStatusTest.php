@@ -21,7 +21,7 @@ test('can retrieve analyze music status from the api', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof GetAnalyzeMusicStatus
-            && $response->body() == "{\"path\":\"/media/analyze/music\",\"status\":\"Success\",\"progress\":100,\"api_version\":\"b1.0\",\"result\":{}}";
+            && $response->body() == '{"path":"/media/analyze/music","status":"Success","progress":100,"api_version":"b1.0","result":{}}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);

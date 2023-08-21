@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace DolbyApi;
 
 use DolbyApi\Exceptions\ApiTypeException;
-use Generator;
-use Saloon\Http\Connector;
-use Saloon\Contracts\Request;
-use DolbyApi\Responses\DolbyResponse;
 use DolbyApi\Resource\MediaApiResource;
+use DolbyApi\Responses\DolbyResponse;
+use Saloon\Http\Connector;
 
 class DolbyApi extends Connector
 {
@@ -27,8 +25,6 @@ class DolbyApi extends Connector
 
     /**
      * Resolve the base URL of the service.
-     *
-     * @return string
      */
     public function resolveBaseUrl(): string
     {
@@ -62,7 +58,7 @@ class DolbyApi extends Connector
 
     public function api(string $apiType): MediaApiResource
     {
-        return match($apiType) {
+        return match ($apiType) {
             'media' => new MediaApiResource($this),
             default => throw new ApiTypeException(sprintf('The %s API type is invalid', $apiType)),
         };

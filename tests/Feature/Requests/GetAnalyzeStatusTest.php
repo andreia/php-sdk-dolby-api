@@ -21,7 +21,7 @@ test('can retrieve analyze status from the api', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof GetAnalyzeStatus
-            && $response->body() == "{\"path\":\"/media/analyze\",\"status\":\"Success\",\"progress\":100,\"api_version\":\"b1.4\",\"result\":{}}";
+            && $response->body() == '{"path":"/media/analyze","status":"Success","progress":100,"api_version":"b1.4","result":{}}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);

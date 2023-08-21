@@ -26,8 +26,8 @@ declare(strict_types=1);
 |
 */
 
-use Saloon\Http\Faking\MockClient;
 use Saloon\Contracts\PendingRequest;
+use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
 expect()->extend('toBeOne', function () {

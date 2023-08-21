@@ -15,8 +15,6 @@ class StartAnalyzeSpeech extends Request implements HasBody
 
     /**
      * HTTP Method
-     *
-     * @var Method
      */
     protected Method $method = Method::POST;
 
@@ -24,7 +22,8 @@ class StartAnalyzeSpeech extends Request implements HasBody
         protected string $input,
         protected string $output,
         protected array $onComplete,
-    ){}
+    ) {
+    }
 
     protected function defaultBody(): array
     {
@@ -41,8 +40,6 @@ class StartAnalyzeSpeech extends Request implements HasBody
      * Start analyzing to learn about speech in your media.
      *
      * @see https://docs.dolby.io/media-apis/reference/media-analyze-speech-post
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

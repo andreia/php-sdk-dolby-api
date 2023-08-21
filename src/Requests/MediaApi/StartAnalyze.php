@@ -15,8 +15,6 @@ class StartAnalyze extends Request implements HasBody
 
     /**
      * HTTP Method
-     *
-     * @var Method
      */
     protected Method $method = Method::POST;
 
@@ -25,7 +23,8 @@ class StartAnalyze extends Request implements HasBody
         protected string $output,
         protected array $loudness,
         protected array $content,
-    ){}
+    ) {
+    }
 
     protected function defaultBody(): array
     {
@@ -43,8 +42,6 @@ class StartAnalyze extends Request implements HasBody
      * Start analyzing to learn about your media.
      *
      * @see https://docs.dolby.io/media-apis/reference/media-analyze-post
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

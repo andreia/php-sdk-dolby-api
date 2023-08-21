@@ -15,14 +15,13 @@ class GetDownloadUrl extends Request implements HasBody
 
     /**
      * HTTP Method
-     *
-     * @var Method
      */
     protected Method $method = Method::POST;
 
     public function __construct(
         protected string $url,
-    ){}
+    ) {
+    }
 
     protected function defaultBody(): array
     {
@@ -37,8 +36,6 @@ class GetDownloadUrl extends Request implements HasBody
      * Download media you previously uploaded with /media/input or media that was generated through another Dolby Media API.
      *
      * @see https://docs.dolby.io/media-apis/reference/media-output-post
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

@@ -21,7 +21,7 @@ test('can retrieve analyze speech status from the api', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof GetAnalyzeSpeechStatus
-            && $response->body() == "{\"path\":\"/media/analyze/speech\",\"status\":\"Success\",\"progress\":100,\"api_version\":\"b1.0\",\"result\":{}}";
+            && $response->body() == '{"path":"/media/analyze/speech","status":"Success","progress":100,"api_version":"b1.0","result":{}}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);
