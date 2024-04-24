@@ -13,8 +13,6 @@ class DolbyApi extends Connector
 {
     /**
      * Define the custom response
-     *
-     * @var string
      */
     protected ?string $response = DolbyResponse::class;
 
