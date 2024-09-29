@@ -210,7 +210,39 @@ $analyzeMusicStatusResponse->body(); // "{"path":"/media/analyze/music","status"
 
 #### [Transcode API](https://docs.dolby.io/media-apis/docs/transcode-api-guide)
 
-TODO
+[Start Transcoding](https://docs.dolby.io/media-apis/reference/media-transcode-post)
+
+```php
+$transcodingResponse = $dolbyApi->api('media')->transcode('inputs-array', 'outputs-array', 'optional-storage-array', 'optional-on-complete-array');
+```
+
+E.g.:
+```php
+$inputs = [
+    'source' => 'https://dolbyio.s3-us-west-1.amazonaws.com/public/shelby/indoors.original.mp4'
+];
+
+$outputs = [
+    "id" => "my_mp4",
+    "destination" => "dlb://out/airplane-transcoded.mp4",
+    "kind" => "mp4",
+];
+
+$transcodingResponse = $dolbyApi->api('media')->transcode($inputs, $outputs);
+$transcodingResponse->body(); // "{"job_id":"0c1fae6e-39e5-4a36-a076-bf3315d5179f"}"
+```
+
+[Get Transcode Results](https://docs.dolby.io/media-apis/reference/media-transcode-get)
+
+```php
+$transcodeResultsResponse = $dolbyApi->api('media')->transcodeResults('job-id');
+```
+
+E.g.:
+```php
+$transcodeResultsResponse = $dolbyApi->api('media')->transcodeResults('0c1fae6e-39e5-4a36-a076-bf3315d5179f');
+$transcodeResultsResponse->body(); // {"path":"/media/transcode","status":"Success","progress":100,"api_version":"v1.7","result":{}}
+```
 
 #### [Music Mastering API](https://docs.dolby.io/media-apis/docs/music-mastering-api-guide)
 
