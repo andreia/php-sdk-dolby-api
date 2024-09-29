@@ -21,8 +21,7 @@ class StartEnhance extends Request implements HasBody
     public function __construct(
         protected string $input,
         protected string $output,
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {
