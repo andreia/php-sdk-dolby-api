@@ -14,6 +14,8 @@ use DolbyApi\Requests\MediaApi\StartAnalyzeMusic;
 use DolbyApi\Requests\MediaApi\StartAnalyzeSpeech;
 use DolbyApi\Requests\MediaApi\StartDiagnose;
 use DolbyApi\Requests\MediaApi\StartEnhance;
+use DolbyApi\Requests\MediaApi\StartTranscoding;
+use DolbyApi\Requests\MediaApi\GetTranscodeResults;
 use DolbyApi\Responses\DolbyResponse as Response;
 
 class MediaApiResource extends Resource
@@ -76,5 +78,15 @@ class MediaApiResource extends Resource
     public function analyzeMusicStatus(string $jobId): Response
     {
         return $this->connector->send(new GetAnalyzeMusicStatus($jobId));
+    }
+
+    public function transcode(array $inputs, array $outputs, array|null $storage = null, array|null $onComplete = null): Response
+    {
+        return $this->connector->send(new StartTranscoding($inputs, $outputs, $storage, $onComplete));
+    }
+
+    public function transcodeResults(string $jobId): Response
+    {
+        return $this->connector->send(new GetTranscodeResults($jobId));
     }
 }
