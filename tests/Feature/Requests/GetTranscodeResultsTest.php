@@ -13,7 +13,7 @@ test('can retrieve transcoding results from the api', function () {
     $dolbyApi = new DolbyApi('my-api-token');
     $dolbyApi->withMockClient($mockClient);
 
-    $jobId = 'tr988637-9fb8-4023-32lt-1285r04627st';
+    $jobId = 'tr988637-9fb8-4123-62lt-1485r04627st';
 
     $response = $dolbyApi->send(new GetTranscodeResults($jobId));
 
@@ -21,7 +21,7 @@ test('can retrieve transcoding results from the api', function () {
 
     $mockClient->assertSent(function (Request $request, Response $response) {
         return $request instanceof GetTranscodeResults
-            && $response->body() == '{"path":"/media/transcode","status":"Success","progress":100,"api_version":"b1.4","result":{}}';
+            && $response->body() == '{"path":"/media/transcode","status":"Success","progress":100,"api_version":"v1.7","result":{}}';
     });
 
     expect($response)->toBeInstanceOf(DolbyResponse::class);
