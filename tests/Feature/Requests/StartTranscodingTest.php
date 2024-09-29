@@ -17,13 +17,13 @@ test('can post to transcode', function () {
     $dolbyApi->withMockClient($mockClient);
 
     $inputs = [
-        'source' => 'https://dolbyio.s3-us-west-1.amazonaws.com/public/shelby/indoors.original.mp4'
+        'source' => 'https://dolbyio.s3-us-west-1.amazonaws.com/public/shelby/indoors.original.mp4',
     ];
 
     $outputs = [
-        "id" => "my_mp4",
-        "destination" => "dlb://out/airplane-transcoded.mp4",
-        "kind" => "mp4",
+        'id' => 'my_mp4',
+        'destination' => 'dlb://out/airplane-transcoded.mp4',
+        'kind' => 'mp4',
     ];
 
     $response = $dolbyApi->send(new StartTranscoding($inputs, $outputs));

@@ -20,8 +20,7 @@ class GetDownloadUrl extends Request implements HasBody
 
     public function __construct(
         protected string $url,
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {

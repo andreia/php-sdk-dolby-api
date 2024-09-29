@@ -22,8 +22,7 @@ class StartAnalyzeMusic extends Request implements HasBody
         protected string $input,
         protected string $output,
         protected array $onComplete,
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {

@@ -23,8 +23,7 @@ class StartAnalyze extends Request implements HasBody
         protected string $output,
         protected array $loudness,
         protected array $content,
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {

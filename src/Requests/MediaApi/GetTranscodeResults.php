@@ -16,8 +16,7 @@ class GetTranscodeResults extends Request
 
     public function __construct(
         protected string $jobId,
-    ) {
-    }
+    ) {}
 
     protected function defaultQuery(): array
     {

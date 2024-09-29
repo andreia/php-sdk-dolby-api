@@ -21,8 +21,7 @@ class StartDiagnose extends Request implements HasBody
     public function __construct(
         protected string $input,
         protected array $content,
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {

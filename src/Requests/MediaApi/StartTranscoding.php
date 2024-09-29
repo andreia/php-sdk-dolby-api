@@ -23,8 +23,7 @@ class StartTranscoding extends Request implements HasBody
         protected array $outputs,
         protected ?array $storage,
         protected ?array $onComplete,
-    ) {
-    }
+    ) {}
 
     protected function defaultBody(): array
     {
